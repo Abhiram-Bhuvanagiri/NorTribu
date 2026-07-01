@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".scroll-card, .bento-card");
+  const cards = document.querySelectorAll(".scroll-card, .bento-card, .anim-text");
   if (cards.length === 0) return;
 
   const animateCounter = (counterElement) => {
@@ -33,14 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
           const counters = entry.target.querySelectorAll('.counter');
           counters.forEach(counter => animateCounter(counter));
         }
-      } else {
-        entry.target.classList.remove("entered");
-        const counters = entry.target.querySelectorAll('.counter');
-        counters.forEach(counter => {
-          const suffix = counter.getAttribute('data-suffix') || '';
-          const decimals = parseInt(counter.getAttribute('data-decimals')) || 0;
-          counter.innerText = (0).toFixed(decimals) + suffix;
-        });
       }
     });
   }, { 
